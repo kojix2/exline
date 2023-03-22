@@ -1,5 +1,7 @@
 # Exline
 
+[![CI](https://github.com/kojix2/exline/actions/workflows/ci.yml/badge.svg)](https://github.com/kojix2/exline/actions/workflows/ci.yml)
+
 Exline is a command-line utility that extracts and prints specific lines or a range of lines from a text file, based on a specified pattern.
 
 ## Usage

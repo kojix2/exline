@@ -2,9 +2,28 @@
 
 require 'optparse'
 
+class CustomRange
+  def initialize
+    @ranges = []
+    @numbers = []
+  end
+
+  def <<(element)
+    if element.is_a?(Range)
+      @ranges << element
+    else
+      @numbers << element
+    end
+  end
+
+  def include?(number)
+    @ranges.any? { |range| range.include?(number) } || @numbers.include?(number)
+  end
+end
+
 separator = "\n"
 pattern = nil
-range = ''
+range = CustomRange.new
 
 option_parser = OptionParser.new do |opts|
   opts.banner = 'Usage: your_program [pattern] [options] [file1 file2 ...]'
@@ -23,8 +42,13 @@ if remaining_args.empty?
   puts 'Error: No pattern provided.'
 else
   pattern = remaining_args.shift
-  # If pattern is "3,4,5", range must be an array.
-  eval "range = #{pattern}"
+  pattern.split(',').each do |part|
+    if part.include?('..')
+      eval "range << (#{part})"
+    else
+      range << part.to_i
+    end
+  end
   current_line = 0
 
   ARGF.argv.replace(remaining_args)

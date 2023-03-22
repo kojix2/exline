@@ -54,6 +54,12 @@ Extract and print lines 3 to 5 from standard input:
 cat myfile.txt | exline 3..5
 ```
 
+Extract and print lines 2, 3, 4, and 6 to 10 from a file:
+
+```
+exline 2,3,4,6..10 myfile.txt
+```
+
 Installation
 
 Download the exline script and make it executable:

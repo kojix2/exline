@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+separator = "\n"
+pattern = nil
+range = ''
+
+option_parser = OptionParser.new do |opts|
+  opts.banner = 'Usage: your_program [pattern] [options] [file1 file2 ...]'
+  opts.on('-s', '--sep=SEPARATOR', 'Specify line separator') do |s|
+    separator = s
+  end
+  opts.on('-h', '--help', 'Show this help') do
+    puts opts
+    exit
+  end
+end
+
+remaining_args = option_parser.order(ARGV)
+
+if remaining_args.empty?
+  puts 'Error: No pattern provided.'
+else
+  pattern = remaining_args.shift
+  # If pattern is "3,4,5", range must be an array.
+  eval "range = #{pattern}"
+  current_line = 0
+
+  ARGF.argv.replace(remaining_args)
+  ARGF.each_line(separator) do |line|
+    puts line if range.include?(current_line)
+    current_line += 1
+  end
+end

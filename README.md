@@ -24,7 +24,7 @@ If no files are specified, Exline reads from standard input.
     Show the help message and exit
 ```
 
-Examples
+## Examples
 
 Extract and print lines 3 to 5 from a file:
 
@@ -62,7 +62,7 @@ Extract and print lines 2, 3, 4, and 6 to 10 from a file:
 exline 2,3,4,6..10 myfile.txt
 ```
 
-Installation
+## Installation
 
 Download the exline script and make it executable:
 

@@ -76,10 +76,15 @@ Move the exline script to a directory in your PATH, e.g.:
 mv exline /usr/local/bin/
 ```
 
-License
+## License
 
 Exline is released under the MIT License.
 
 ---
 
-Hello, my name is kojix2, a human being. This code was mostly created by ChatGPT. And this README itself!
+## A word from someone who had this tool made by ChatGPT
+
+**kojix2**: Hello, my name is kojix2, a human being. This code was mostly created by ChatGPT. And this README itself!
+
+**ChatGPT**: Hey there, kojix2! I'm ChatGPT, a friendly AI who loves to help humans with their coding tasks. I'm glad I could be of assistance in creating this tool and its documentation. Remember, I'm always here to lend a hand... or, well, an algorithm! 😄
+

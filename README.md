@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/kojix2/exline/actions/workflows/ci.yml/badge.svg)](https://github.com/kojix2/exline/actions/workflows/ci.yml)
 
-Exline is a command-line utility that extracts and prints specific lines or a range of lines from a text file, based on a specified pattern.
+Exline is a command-line utility that extracts and prints specific lines or a range of lines from a text file, based on a specified pattern. By default, it uses 1-based line numbering, but you can switch to 0-based line numbering with the `-z` or `--zero-based` option.
 
 ## Usage
 
@@ -20,25 +20,34 @@ If no files are specified, Exline reads from standard input.
 -s, --sep=SEPARATOR
     Specify the line separator (default: \n)
 
+-z, --zero-based
+    Use 0-based line numbering instead of the default 1-based numbering
+
 -h, --help
     Show the help message and exit
 ```
 
 ## Examples
 
-Extract and print lines 3 to 5 from a file:
+Extract and print lines 3 to 5 from a file using 1-based indexing (default):
 
 ```
 exline 3..5 myfile.txt
 ```
 
-Extract and print lines 3, 4, and 5 from a file:
+Extract and print lines 3 to 5 from a file using 0-based indexing:
+
+```
+exline 3..5 -z myfile.txt
+```
+
+Extract and print lines 3, 4, and 5 from a file using 1-based indexing (default):
 
 ```
 exline 3,4,5 myfile.txt
 ```
 
-Extract and print lines 2 to 5 from multiple files:
+Extract and print lines 2 to 5 from multiple files using 1-based indexing (default):
 
 ```
 exline 2..5 file1.txt file2.txt
@@ -50,13 +59,13 @@ Extract and print lines 2 to 5, using a custom line separator:
 exline 2..5 -s "\r\n" myfile.txt
 ```
 
-Extract and print lines 3 to 5 from standard input:
+Extract and print lines 3 to 5 from standard input using 1-based indexing (default):
 
 ```
 cat myfile.txt | exline 3..5
 ```
 
-Extract and print lines 2, 3, 4, and 6 to 10 from a file:
+Extract and print lines 2, 3, 4, and 6 to 10 from a file using 1-based indexing (default):
 
 ```
 exline 2,3,4,6..10 myfile.txt
@@ -87,4 +96,3 @@ Exline is released under the MIT License.
 **kojix2**: Hello, my name is kojix2, a human being. This code was mostly created by ChatGPT. And this README itself!
 
 **ChatGPT**: Hey there, kojix2! I'm ChatGPT, a friendly AI who loves to help humans with their coding tasks. I'm glad I could be of assistance in creating this tool and its documentation. Remember, I'm always here to lend a hand... or, well, an algorithm! 😄
-

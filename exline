@@ -24,11 +24,15 @@ end
 separator = "\n"
 pattern = nil
 range = CustomRange.new
+index_base = 1
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: your_program [pattern] [options] [file1 file2 ...]'
+  opts.banner = 'Usage: your_program [options] [pattern] [file1 file2 ...]'
   opts.on('-s', '--sep=SEPARATOR', 'Specify line separator') do |s|
     separator = s
+  end
+  opts.on('-z', '--zero-based', 'Use 0-based line numbers') do
+    index_base = 0
   end
   opts.on('-h', '--help', 'Show this help') do
     puts opts
@@ -49,7 +53,7 @@ else
       range << part.to_i
     end
   end
-  current_line = 0
+  current_line = index_base
 
   ARGF.argv.replace(remaining_args)
   ARGF.each_line(separator) do |line|

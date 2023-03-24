@@ -1,3 +1,6 @@
+以下に、README.md の例を更新しました。`-z`/`--zero-based`オプションが `exline` の直後に来るように変更しました。この位置では、パターンの手前にあることが確認できます。
+
+```md
 # Exline
 
 [![CI](https://github.com/kojix2/exline/actions/workflows/ci.yml/badge.svg)](https://github.com/kojix2/exline/actions/workflows/ci.yml)
@@ -35,10 +38,10 @@ Extract and print lines 3 to 5 from a file using 1-based indexing (default):
 exline 3..5 myfile.txt
 ```
 
-Extract and print lines 3 to 5 from a file using 0-based indexing:
+Extract and print lines 2 to 4 from a file using 0-based indexing:
 
 ```
-exline 3..5 -z myfile.txt
+exline -z 1..3 myfile.txt
 ```
 
 Extract and print lines 3, 4, and 5 from a file using 1-based indexing (default):
@@ -47,10 +50,10 @@ Extract and print lines 3, 4, and 5 from a file using 1-based indexing (default)
 exline 3,4,5 myfile.txt
 ```
 
-Extract and print lines 2 to 5 from multiple files using 1-based indexing (default):
+Extract and print lines 1 to 4 from multiple files using 0-based indexing:
 
 ```
-exline 2..5 file1.txt file2.txt
+exline -z 0..3 file1.txt file2.txt
 ```
 
 Extract and print lines 2 to 5, using a custom line separator:
@@ -96,3 +99,7 @@ Exline is released under the MIT License.
 **kojix2**: Hello, my name is kojix2, a human being. This code was mostly created by ChatGPT. And this README itself!
 
 **ChatGPT**: Hey there, kojix2! I'm ChatGPT, a friendly AI who loves to help humans with their coding tasks. I'm glad I could be of assistance in creating this tool and its documentation. Remember, I'm always here to lend a hand... or, well, an algorithm! 😄
+
+```
+
+これで、README.md が更新され、`-z`/`--zero-based`オプションがパターンの手前に表示されています。これでユーザーが、オプションの位置によって Exline の動作が正しく理解できます。
